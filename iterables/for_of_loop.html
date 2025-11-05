@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Of Loop</title>
+    <script>
+        // Modify Array prototype to add a new method called 'shuffle'
+        Array.prototype.shuffle = function() {
+            for (let i = this.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [this[i], this[j]] = [this[j], this[i]];
+            }
+        }
+
+        const numbers = [1, 2, 3, 4, 5];
+
+        // Cons: It's the most verbose and least efficient way to iterate over an array.
+        console.log('== For Loop ==');
+        for (let i = 0; i < numbers.length; i++) {
+            console.log(numbers[i]);
+        }
+
+        // Cons: Not able to break out of the loop.
+        console.log('== For Each Loop ==');
+        numbers.forEach(number => {
+            // if (number === 3) break; This is not possible in a forEach loop.
+            console.log(number);
+        });
+
+        // Cons: It includes the prototype properties of the object in the iteration.
+        console.log('== For In Loop ==');
+        for (const index in numbers) {
+            console.log(numbers[index]);
+        }
+
+        // Pros: It's the most efficient way to iterate over an array.
+        console.log('== For Of Loop ==');
+        for (const number of numbers) {
+            if (number === 3) break;
+            if (number === 2) continue; 
+            console.log(number);
+        }
+
+        // A bit of generators
+        for (const [index, number] of numbers.entries()) {
+            console.log(`Number ${number} is at index ${index}`);
+        }
+
+        // arguments is a built-in object that contains all the arguments passed to the function.
+        // Won't work with arrow functions
+        function addNumbers() {
+            let sum = 0;
+            for (const number of arguments) {
+                sum += number;
+            }
+            console.log(`The sum of the numbers is ${sum}`);
+            return sum;
+        }
+        addNumbers(1, 2, 3, 4, 5);
+        addNumbers(10, 20, 30, 40, 50);
+
+        const name = 'Ricardo';
+        for (const letter of name) {
+            console.log(letter);
+        }
+
+    </script>
+</head>
+<body>
+</body>
+</html>

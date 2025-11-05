@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Of Object</title>
+    <script>
+        const person = {
+            name: 'Ricardo',
+            lastName: 'Castaneda',
+            age: 33,
+            city: 'San Salvador',
+            socialNetworks: {
+                leisure: {
+                    facebook: 'https://www.facebook.com/ricardo.castaneda.6',
+                    instagram: 'https://www.instagram.com/ricardo.castaneda.6',
+                },
+            }
+        }
+
+        // for an object this would be recommended
+        for (const key in person) {
+            console.log(key, person[key]);
+        }
+
+        for (const key of Object.keys(person)) {
+            const value = person[key];
+            console.log(key, value);
+        }
+
+        // newer way to iterate over an object
+        for (const [key, value] of Object.entries(person)) {
+            console.log(key, value);
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
