@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructuring Objects</title>
+    <script>
+
+    const person = {
+        name: 'Ricardo',
+        lastName: 'Castaneda',
+        age: 33,
+        city: 'San Salvador',
+        socialNetworks: {
+            leisure: {
+                facebook: 'https://www.facebook.com/ricardo.castaneda.6',
+                instagram: 'https://www.instagram.com/ricardo.castaneda.6',
+            },
+            work: {
+                linkedin: 'https://www.linkedin.com/in/ricardo.castaneda.6',
+                github: 'https://github.com/ricardo.castaneda.6',
+            }
+        }
+    }
+
+    const { name, age, city } = person;
+    console.log('== Destructuring the object person ==');
+    console.log(name, age, city);
+
+    const { name: firstName, age: years } = person;
+    console.log('== Destructuring and renaming the variables ==');
+    console.log(firstName, years);
+
+    const { lastName: surname, city: position = 'Hawaii', sex = 'M' } = person;
+    console.log('== Destructuring and renaming the variables and adding a default value ==');
+    console.log(surname, position, sex);
+
+    const { linkedin, github } = person.socialNetworks.work;
+    console.log('== Destructuring the object person and the social networks work ==');
+    console.log(linkedin, github);
+
+    const  { width: w = 50, height: h = 50 } = { width: 100 };
+    console.log('== Destructuring and adding a default value ==');
+    console.log(w, h);
+    
+    </script>
+</head>
+<body>
+</body>
+</html>

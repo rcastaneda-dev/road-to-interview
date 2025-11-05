@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destructuring Array</title>
+    <script>
+        const details = ['Ricardo', 33, 'San Salvador'];
+        const [name, age, city] = details;
+        console.log('== Destructuring the array details ==');
+        console.log(name, age, city);
+
+        const inventoryCSVData = 'Rare Beauty Lipstick, 15.99, ABC1009-2, 2, makeup, young, popular';
+        const [itemName, price, sku, quantity] = inventoryCSVData.split(',');
+        console.log('== Destructuring the array inventoryCSVData without the Rest operator ==');
+        console.log(itemName, price, sku, quantity);
+
+        const [itemName2, price2, sku2, quantity2, ...rest] = inventoryCSVData.split(',');
+        console.log('== Destructuring the array inventoryCSVData with the Rest operator ==');
+        console.log(itemName2, price2, sku2, quantity2, rest);
+
+    </script>
+</head>
+<body>
+</body>
+</html>
