@@ -1,37 +1,42 @@
 # How to run code
+
 To run TypeScript (`.ts`) files in this project:
 
 1. **Install TypeScript globally (if not already installed):**
 
-    ```
-    npm install -g typescript
-    ```
+   ```
+   npm install -g typescript
+   ```
 
-2. **Compile your TypeScript file to JavaScript:**
+2. **Compile from the project root:**
 
-    ```
-    tsc your-file.ts
-    ```
+   ```
+   tsc
+   ```
 
-    This will generate a `your-file.js` file in the same directory.
+   This uses the root `tsconfig.json` and compiles all `.ts` files. Output `.js` files are written next to their sources.
 
-3. **Run the compiled JavaScript file using Node.js:**
+   > Do not run `tsc your-file.ts` — that skips `tsconfig.json` and can cause lib errors (e.g. `Map`, `flatMap`, `Array.from`, `console`).
 
-    ```
-    node your-file.js
-    ```
+3. **Run the compiled JavaScript file:**
 
-For example, to run `methods.ts`:
+   ```
+   node typescript/your-file.js
+   ```
 
-```
-tsc methods.ts
-node methods.js
-```
-
-*If you want to compile all `.ts` files at once:*
+**Example — run `array_reduce_by_intervals.ts`:**
 
 ```
 tsc
+node typescript/array_reduce_by_intervals.js
 ```
 
-This will compile all TypeScript files in the folder (requires a `tsconfig.json` if you need project-wide config).
+**Files in this folder:**
+
+| File | Description |
+|------|-------------|
+| `array_reduce_by_intervals.ts` | Count numbers by predefined intervals (1–5, 6–8, 9–10) |
+| `interface.ts` | Basic interface and function types |
+| `interface-2.ts` | Extended interface examples |
+| `lists.ts` | Array/list utilities |
+| `methods.ts` | Object methods and examples |
